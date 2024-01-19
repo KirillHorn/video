@@ -1,0 +1,18 @@
+.button_auth {
+    background-color: #263248;
+    border: 1px solid #263248;
+}
+.button_auth:hover {
+border: 1px solid #263248;
+    color: #263248;
+    background-color: rgb(255, 255, 255);
+}
+.button_reg {
+    border: 1px solid #263248;
+    color: #263248;
+}
+.button_reg:hover {
+    background-color: #263248;
+        border: 1px solid #263248;
+        color: rgb(255, 255, 255);
+}
