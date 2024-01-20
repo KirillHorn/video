@@ -20,3 +20,8 @@ Route::get('/', function () {
 Route::get('register', [Registercontroller::class, 'registration_view']);
 
 Route::get('auth', [Registercontroller::class, 'auth_view']);
+
+Route::post('registration_valid', [Registercontroller::class, 'registration_valid']);
+Route::post('auth_valid', [Registercontroller::class, 'auth_valid']);
+
+Route::get('signout', [Registercontroller::class, 'signout']);

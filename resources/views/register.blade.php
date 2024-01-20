@@ -7,7 +7,8 @@
 
     </div>
     @endif
-    <form method="POST" action="/register_valid">
+    <h1 class="text-center" style="color:#263248;" >Регистрация</h1>
+    <form method="POST" action="/registration_valid" class="form_vhod">
       @csrf
 
       <div class="mb-3">
@@ -31,7 +32,7 @@
           <input type="password" name="password_reset" class="form-control" id="exampleInputPassword1">
           <p>@error('password_reset') {{$message}}  @enderror</p>
         </div>
-        <button type="submit" class="btn btn-primary">Зарегистрироваться</button>
+        <button type="submit" class="btn btn-primary button_auth">Зарегистрироваться</button>
       </form>
 
 

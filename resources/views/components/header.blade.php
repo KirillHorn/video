@@ -21,17 +21,25 @@
         <img src="/img/logo.png" style="width: 50px; height:50px; margin-left: 40px; border-radius:50%;">
         <h2 style="padding-left:20px; color:#263248;">ВидеоФрирен</h2>
       </a>
-
+  @auth
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="#" class="nav-link px-2 link-secondary">Главная</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Видео</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Добавить видео</a></li>
       </ul>
 
+  <div class="col-md-3 text-end">
+        <a href="/personalcub" class="btn btn-outline-primary me-2 button_reg">Личный кабинет</a>
+        <a href="/signout" class="btn btn-primary button_auth"  style="margin-right: 40px;">Выйти</a>
+      </div>
+      @endauth
+
+        @guest
       <div class="col-md-3 text-end">
         <a href="/auth" class="btn btn-outline-primary me-2 button_reg">Вход</a>
         <a href="/register" class="btn btn-primary button_auth"  style="margin-right: 40px;">Регистрация</a>
       </div>
+      @endguest
     </header>
 
 
