@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('video');
             $table->string('img');
             $table->longText('description');
+            $table->foreignId('users')->references('id')->on('users');
             $table->foreignId('categories')->references('id')->on('categories');
             $table->foreignId('status')->references('id')->on('statuses');
             $table->timestamps();
@@ -31,3 +32,4 @@ return new class extends Migration
         Schema::dropIfExists('videos');
     }
 };
+ 

@@ -28,13 +28,23 @@ outline: #263248;
     -moz-box-shadow: 1px 1px 0px 5px rgba(38, 50, 72, 0.26);
     box-shadow: 1px 1px 0px 5px rgba(38, 50, 72, 0.26);
 }
-.video_block {
-    max-width: 300px;
+/* .video_main {
+    max-height: 100%;
+    
+} */
+/* .video_block {
+
     height: 300px;
     
-}
+} */
 .video_block video {
-    max-width: 400px;
+    max-width: 300px;
         height: 300px;
 }
 
+hr {
+    border: none; /* Убираем границу для браузера Firefox */
+    color: #263248; /* Цвет линии для остальных браузеров */
+    background-color: #263248; /* Цвет линии для браузера Firefox и Opera */
+    height: 2px; /* Толщина линии */
+}

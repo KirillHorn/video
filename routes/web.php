@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Registercontroller;
+use App\Http\Controllers\VideoControllers;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -25,3 +26,5 @@ Route::post('registration_valid', [Registercontroller::class, 'registration_vali
 Route::post('auth_valid', [Registercontroller::class, 'auth_valid']);
 
 Route::get('signout', [Registercontroller::class, 'signout']);
+
+Route::get('addVideo', [VideoControllers::class, 'addVideo_view']);

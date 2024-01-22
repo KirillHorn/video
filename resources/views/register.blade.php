@@ -5,6 +5,8 @@
     <div  id="message"  class="message">
     {{session("error")}}
 
+  
+
     </div>
     @endif
     <h1 class="text-center" style="color:#263248;" >Регистрация</h1>
