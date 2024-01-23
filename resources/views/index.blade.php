@@ -1,15 +1,16 @@
 <x-header />
 <section class="container">
      <div class="video_main  d-flex gap-4 flex-wrap align-items">
-
+        @foreach ($videos as $video)
         
             <div class="video_block">
-                <video src="/videos/idk2.mp4" controls>
+                <video src="/storage/video/{{$video->video}}" controls>
                 </video>
-                <p>мьюнинг кот  </p>
-                <p>дата загрузки</p>
+                <p>{{$video->title}}  </p>
+                <p>{{$video->users}}  </p>
+                <p>{{$video->created_at}}</p>
             </div>
-
+    @endforeach
 
 
             <div class="video_block">

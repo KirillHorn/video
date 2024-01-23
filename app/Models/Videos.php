@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
 
 class Videos extends Model
 {
@@ -12,6 +13,7 @@ class Videos extends Model
     protected $fillable =[
         "id",
         "title",
+        "img",
         "video",
         "description",
         "users",
@@ -19,4 +21,8 @@ class Videos extends Model
         "status"
 
     ];
+
+    public function user() {
+        $this->belongsTo(User::class,'users','id');
+    }
 }
