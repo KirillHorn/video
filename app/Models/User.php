@@ -45,7 +45,7 @@ class User extends Authenticatable
         'password' => 'hashed',
     ];
 
-    public function user() {
-        $this->hasMany(Videos::class,'users','id');
+    public function videos() {
+        return $this->hasMany(Videos::class,'users','id');
     }
 }

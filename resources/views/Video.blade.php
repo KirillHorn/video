@@ -1,8 +1,20 @@
 <x-header />
 <section class="container">
-     <div class="video_main  d-flex gap-4 flex-wrap align-items">
+     <div>
+        @php
+        $diff = $video->created_at->diffForHumans();
+    @endphp
+        <div>
+            <video src="/storage/video/{{$video->video}}" controls>
+            </video>
+            <h2>{{$video->title}}</h2>
+            <p>{{$diff}} </p>
+        </div>
+     </div>
 
-    @if ($videos)
+
+        
+    {{-- @if ($videos)
         @foreach ($videos as $video)
 
 
@@ -29,7 +41,7 @@
     @endif
 
      </div>
-     <hr style="color: #263248;">
+     <hr style="color: #263248;"> --}}
 </section>
 
 </body>

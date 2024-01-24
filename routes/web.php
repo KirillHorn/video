@@ -30,3 +30,5 @@ Route::get('addVideo', [VideoControllers::class, 'addVideo_view']);
 
 Route::post('addVideo_valid', [VideoControllers::class, 'addVideo_valid']);
 
+Route::get('/{id}/Video', [VideoControllers::class, 'Video_view']);
+

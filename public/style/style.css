@@ -37,9 +37,29 @@ outline: #263248;
     height: 300px;
     
 } */
+a {
+    text-decoration: none;
+}
+.video_block {
+    background-color: #263248;
+    color: #ffffff;
+    height: 250px;
+    width: 310px;
+    border-radius: 10px;
+}
+.video_block p {
+    margin-left: 5px;
+}
 .video_block video {
+    margin-top: 5px;
+    margin-left: 5px;
     max-width: 300px;
-        height: 300px;
+    max-height: 300px;
+    border-radius: 10px;
+}
+
+p {
+    margin-bottom: 0rem;
 }
 
 hr {

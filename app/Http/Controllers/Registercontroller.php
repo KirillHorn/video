@@ -44,7 +44,7 @@ class Registercontroller extends Controller
             'role' => 1,
         ]);
         if ($userAdd) {
-            return redirect("/")->with('reg','Регистрация прошла удачно, авторизируйтесь!');
+            return redirect("/auth")->with('reg','Регистрация прошла удачно, авторизируйтесь!');
         } else {
             return redirect()->back()->with('error', 'Произошла ошибка! Проверьте логин или пароль!');
         }

@@ -40,4 +40,8 @@ class VideoControllers extends Controller
             return redirect()->back()->with('error','Ошибка добавлегтя');
         }
     }
+    public function Video_view($id) {
+        $videos=Videos::find($id);
+        return view('Video', ['video' => $videos ]);
+    }
 }
