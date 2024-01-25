@@ -1,6 +1,7 @@
 <x-header />
+<div class="video_section">
 <section class="container">
-     <div>
+     <div class="d-flex">
         @php
         $diff = $video->created_at->diffForHumans();
     @endphp
@@ -9,6 +10,13 @@
             </video>
             <h2>{{$video->title}}</h2>
             <p>{{$diff}} </p>
+        </div>
+        <div class="comment_main">
+                <div> 
+                    <form>
+                        <input type="text" name="comment" placeholder="Оставить комментарий"> 
+                    </form>
+                </div>
         </div>
      </div>
 
@@ -43,7 +51,7 @@
      </div>
      <hr style="color: #263248;"> --}}
 </section>
-
+</div>
 </body>
 
 </html>

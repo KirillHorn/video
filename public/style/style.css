@@ -43,7 +43,7 @@ a {
 .video_block {
     background-color: #263248;
     color: #ffffff;
-    height: 250px;
+    height: 230px;
     width: 310px;
     border-radius: 10px;
 }
@@ -52,9 +52,8 @@ a {
 }
 .video_block video {
     margin-top: 5px;
-    margin-left: 5px;
-    max-width: 300px;
-    max-height: 300px;
+    max-width: 100%;
+    max-height: 150px;
     border-radius: 10px;
 }
 
@@ -67,4 +66,10 @@ hr {
     color: #263248; /* Цвет линии для остальных браузеров */
     background-color: #263248; /* Цвет линии для браузера Firefox и Opera */
     height: 2px; /* Толщина линии */
+}
+.video_section {
+    background-color: #263248;
+}
+.comment_main {
+    background-color: #ffffff;
 }
