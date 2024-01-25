@@ -24,6 +24,13 @@
                         <input type="submit" class="comment_add">
                     </form>
                 </div>
+                <div class="d-flex flex-column"> 
+                    <div class="d-flex flex-column" style="margin-left:5px;"> 
+                        <p>Автор</p>
+                        <p>текст комеента</p>
+                        <p>дата коммента</p>
+                    </div>
+                </div>
         </div>
 
 
