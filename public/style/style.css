@@ -62,14 +62,52 @@ p {
 }
 
 hr {
-    border: none; /* Убираем границу для браузера Firefox */
-    color: #263248; /* Цвет линии для остальных браузеров */
-    background-color: #263248; /* Цвет линии для браузера Firefox и Opera */
-    height: 2px; /* Толщина линии */
+    border: none;
+    color: #263248; 
+    background-color: #263248; 
+    height: 2px; 
+}
+.video_mainFor {
+    gap: 5%; 
+   padding-top:10px;
+}
+.video_one {
+    color: #ffffff;
 }
 .video_section {
     background-color: #263248;
+    padding-bottom: 20px;
 }
 .comment_main {
+    color: #ffffff;
+  
+    background-color: #263248;
+
+    border: 1px solid #ffffff;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    
+}
+.comment_logo {
+    padding-top: 10px;
+    padding-left: 20px;
+    font-size: 30px;
+  
+}
+.comment_text {
+    width: 90%;
+    margin-left: 15px;
+    height: 40px;
+    background-color: #263248;
+    border: none;
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 20px;
+}
+.comment_add {
+    height: 40px;
+    border-radius: 20px;
     background-color: #ffffff;
+    color: #263248;
+    border: 1px solid #ffffff;
 }

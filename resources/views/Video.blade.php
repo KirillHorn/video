@@ -1,55 +1,32 @@
 <x-header />
 <div class="video_section">
 <section class="container">
-     <div class="d-flex">
+     <div class="d-flex video_mainFor" >
         @php
         $diff = $video->created_at->diffForHumans();
     @endphp
-        <div>
+        <div class="video_one">
             <video src="/storage/video/{{$video->video}}" controls>
             </video>
             <h2>{{$video->title}}</h2>
             <p>{{$diff}} </p>
         </div>
-        <div class="comment_main">
-                <div> 
-                    <form>
-                        <input type="text" name="comment" placeholder="Оставить комментарий"> 
+      
+     </div>
+
+     <div class="comment_main">
+                <div class="d-flex flex-column"> 
+                    <p class="comment_logo">Комментарии</p>
+                    <hr style="   border: none; color: #ffffff; background-color: #ffffff; 
+    height: 2px; ">
+                    <form class="d-flex gap-1">
+                        <input class="comment_text" type="text" name="comment" placeholder="Оставить комментарий"> 
+                        <input type="submit" class="comment_add">
                     </form>
                 </div>
         </div>
-     </div>
 
 
-        
-    {{-- @if ($videos)
-        @foreach ($videos as $video)
-
-
-        @php
-        $diff = $video->created_at->diffForHumans();
-    @endphp
-
-            <a href="/{{$video->id}}/Video">
-            <div class="video_block">
-                <video src="/storage/video/{{$video->video}}" controls>
-                </video>
-                <p class="fs-4 fw-bold" style="padding-left: 5px;">{{$video->title}}  </p>
-                    <div class="d-flex justify-content-between" > 
-                <p style="padding-left: 5px;">Автор: <span class="fw-bold"> {{$video->user->login}} </span>    </p>
-                <p style="padding-right: 10px;">{{$diff}}</p>
-
-                     </div>
-            </div>
-        </a>
-    @endforeach
-
-    @else
-            <div>Видео нет</div>
-    @endif
-
-     </div>
-     <hr style="color: #263248;"> --}}
 </section>
 </div>
 </body>
