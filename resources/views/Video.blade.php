@@ -1,9 +1,12 @@
 <x-header />
 <div class="video_section">
 <section class="container">
+
      <div class="d-flex video_mainFor" >
         @php
         $diff = $video->created_at->diffForHumans();
+
+       
     @endphp
         <div class="video_one">
             <video src="/storage/video/{{$video->video}}" controls>
@@ -19,17 +22,29 @@
                     <p class="comment_logo">Комментарии</p>
                     <hr style="   border: none; color: #ffffff; background-color: #ffffff; 
     height: 2px; ">
-                    <form class="d-flex gap-1">
+                    <form class="d-flex gap-1" method="POST" action="/{{$video->id}}/comment_Add">
+                        @csrf
                         <input class="comment_text" type="text" name="comment" placeholder="Оставить комментарий"> 
                         <input type="submit" class="comment_add">
                     </form>
                 </div>
                 <div class="d-flex flex-column"> 
+                    @if ($comment)
+                    @foreach ($comment as $comments)
+                    @php
+                    $diff = $comments->created_at->diffForHumans();
+                    @endphp
                     <div class="d-flex flex-column" style="margin-left:5px;"> 
-                        <p>Автор</p>
-                        <p>текст комеента</p>
-                        <p>дата коммента</p>
+                        <p>{{$comments->users->login}}</p>
+                        <p>{{$comments -> comment}}</p>
+                        <p>{{$diff}}</p>
                     </div>
+                    @endforeach
+                    @else
+                    <div class="d-flex flex-column" style="margin-left:5px;">
+                <p>Комментариев нету</p>
+                    </div>
+                    @endif
                 </div>
         </div>
 

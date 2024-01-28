@@ -4,6 +4,7 @@ namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
 use App\Models\Videos;
+use App\Models\Comments;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -47,5 +48,8 @@ class User extends Authenticatable
 
     public function videos() {
         return $this->hasMany(Videos::class,'users','id');
+    }
+    public function comments() {
+        return $this->hasMany(Comments::class, 'user_id', 'id');
     }
 }

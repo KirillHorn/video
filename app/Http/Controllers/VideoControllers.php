@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Videos;
 use App\Models\Categories;
+use App\Models\Comments;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -42,6 +43,23 @@ class VideoControllers extends Controller
     }
     public function Video_view($id) {
         $videos=Videos::find($id);
-        return view('Video', ['video' => $videos ]);
+        $comment=Comments::where('video', $id)->get();
+        return view('Video', ['video' => $videos, 'comment' => $comment ]);
+    }
+
+    public function comment_Add(Request $request,$id) {
+        $comment = $request->all();
+        $author=Auth::user()->id;
+        $addComment = Comments::create([
+            "comment" => $comment["comment"],
+            "video" => $id,
+            "user_id" => $author,
+        ]);
+
+        if ($addComment ) {
+            return redirect()->back()->with("addComment", "Вы добавили комментарии к видео");
+        } else {
+            return redirect()->back()->with("ErrorComment", "Ошибка добавление");
+        }
     }
 }
