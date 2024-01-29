@@ -26,11 +26,11 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Видео</a></li>
-        <li><a href="/addVideo" class="nav-link px-2 link-dark">Добавить видео</a></li>
+        <li><a href="/addVideo" class="nav-link px-2 link-dark">Добавить видео +</a></li>
       </ul>
 
   <div class="col-md-3 text-end">
-        <a href="/personalcub" class="btn btn-outline-primary me-2 button_reg">Личный кабинет</a>
+        <a href="/personalVideo" class="btn btn-outline-primary me-2 button_reg">Мои видео</a>
         <a href="/signout" class="btn btn-primary button_auth"  style="margin-right: 40px;">Выйти</a>
       </div>
       @endauth

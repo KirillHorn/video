@@ -34,3 +34,5 @@ Route::get('/{id}/Video', [VideoControllers::class, 'Video_view']);
 
 Route::post('/{id}/comment_Add', [VideoControllers::class, 'comment_Add']);
 
+Route::get('/personalVideo', [Registercontroller::class, 'personalVideo_view']);
+

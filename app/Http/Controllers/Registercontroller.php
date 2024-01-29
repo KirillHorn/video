@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Videos;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Session;
@@ -77,5 +78,11 @@ class Registercontroller extends Controller
         Session::flush();
         Auth::logout();
         return redirect('/')->with('signout', 'Вы вышли из аккаунта!');
+    }
+
+    public function personalVideo_view() {
+        $idUser=Auth::user()->id;
+        $videoUser=Videos::where('users', $idUser)->get();
+        return view('personalVideo', ['videos' => $videoUser]);
     }
 }
