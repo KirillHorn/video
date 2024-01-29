@@ -163,6 +163,7 @@ hr {
     transition: all 1.2s ease !important;
     text-align: center;
     margin-left: 50%;
+    margin-top: 20px;
 }
 
 .addVideo_link:hover {
@@ -172,8 +173,10 @@ hr {
     border-color: #263248 !important;
     }
 .video_block_on {
-    width: 100%;
+    width: 65%;
+    border-radius: 10px;
     height: 180px;
+ 
 }
 .video_block_on video {
     margin-left: 20px;

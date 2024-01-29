@@ -1,8 +1,9 @@
 <x-header />
 
 <section class="container">
-    <h2>Мои видео</h2> <a href="/addVideo" class="addVideo_link">+</a>
-    <div class="video_main flex-column  d-flex gap-3 ">
+ <a href="/addVideo" class="addVideo_link" >+</a>
+ <h2 style="color:#263248;">Мои видео</h2>
+    <div class=" flex-column  d-flex gap-3">
 
     @if ($videos)
         @foreach ($videos as $video)
@@ -13,18 +14,20 @@
     @endphp
 
             <a href="/{{$video->id}}/Video">
-            <div class="video_block_on video_block d-flex ">
+            <div class=" video_block video_block_on  d-flex " >
                 <video src="/storage/video/{{$video->video}}" alt="/storage/img/{{$video->img}}" controls>
                 </video>
-                <p class="fs-6 fw-bold" style="padding-left: 5px;">{{$video->title}}  </p>
-                    <div class="d-flex justify-content-between" > 
-                <p style="padding-left: 5px;">Количество лайков: <span class="fw-bold"> {{$video->user->login}} </span>    </p>
-                <p style="padding-left: 5px;">Количество Дизлайков: <span class="fw-bold"> {{$video->user->login}} </span>    </p>
-                <p style="padding-right: 10px;">{{$diff}}</p>
-
+                <div class="d-flex flex-column" style="margin-top: 40px; margin-left:20px;"> 
+                <p class="fs-6 fw-bold" style="padding-left: 5px;">Название: {{$video->title}}  </p>
+                   
+                <p style="padding-left: 5px;">Количество лайков: <span class="fw-bold">  </span>    </p>
+                <p style="padding-left: 5px;">Количество Дизлайков: <span class="fw-bold"> </span>    </p>
+                <p style="padding-right: 10px;">Дата создания: {{$diff}}</p>
+                      
                      </div>
             </div>
         </a>
+        <hr style="color: #263248;   width:65%;">
     @endforeach
 
     @else
@@ -32,11 +35,9 @@
     @endif
 
      </div>
-     <hr style="color: #263248;">
-</section>
-     
-      
 
+     
+    
 
 </section>
 
