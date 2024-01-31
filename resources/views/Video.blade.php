@@ -14,7 +14,21 @@
             <div class="d-flex justify-content-between">
             <h2>{{$video->title}}</h2> <h2>Канал: {{$video->user->login}}</h2>
         </div>
-            <p>{{$diff}} </p> <form> </form>
+            <p>{{$diff}} </p>
+            
+
+            
+                <!-- <form> -->
+                <button id="like" class="button" onclick="liked()">
+                     <i class="fa fa-thumbs-up"></i>
+                            <span class="icon"></span>
+                </button>
+        
+                <!-- </form> -->
+
+
+
+
         </div>
       
      </div>
@@ -67,5 +81,10 @@
 </section>
 </div>
 </body>
-
+<script>
+  function liked(){
+    var element = document.getElementById("like");
+    element.classList.toggle("liked");
+  }
+</script>
 </html>

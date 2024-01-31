@@ -62,4 +62,10 @@ class VideoControllers extends Controller
             return redirect()->back()->with("ErrorComment", "Ошибка добавление");
         }
     }
+
+    public function like_ad (Request $request, $id) {
+        $like=$request->all();
+        $author=Auth::user()->id;
+        $
+    }
 }
