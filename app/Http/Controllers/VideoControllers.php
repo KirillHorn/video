@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Videos;
 use App\Models\Categories;
 use App\Models\Comments;
+use App\Models\Likes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -63,9 +64,45 @@ class VideoControllers extends Controller
         }
     }
 
-    public function like_ad (Request $request, $id) {
-        $like=$request->all();
+    public function like_add($id) {
+    
         $author=Auth::user()->id;
-        $
+       
+        $existingLike=Likes::where('id_user', $author)
+        ->where('id_video', $id)
+        ->first();
+  
+
+        if ($existingLike) {
+            return redirect()->back()->with('error', 'Вы не можете поставить лайк!');
+        } else { 
+            Likes::create([
+            'id_user' => $author,
+            'id_video' => $id,
+        ]);
+        return redirect()->back()->with('likes', 'Вы проставили лайк!');
+        }
+        
     }
+
+    public function Dislike_add($id) {
+    
+    $author=Auth::user()->id;
+   
+    $existingLike=Dislikes::where('id_user', $author)
+    ->where('id_video', $id)
+    ->first();
+
+
+    if ($existingLike) {
+        return redirect()->back()->with('error', 'Вы не можете поставить лайк!');
+    } else { 
+        Dislikes::create([
+        'id_user' => $author,
+        'id_video' => $id,
+    ]);
+    return redirect()->back()->with('likes', 'Вы проставили лайк!');
+    }
+    
+}
 }

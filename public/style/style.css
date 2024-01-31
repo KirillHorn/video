@@ -197,6 +197,18 @@ hr {
     color: #ffffff;
     padding: 5px 10px;
   }
+
+  .button_dislike {
+    background-color: #263248;
+    border: unset;
+    outline: 0;
+    font-size: 18px;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 5px 10px;
+  }
+
+
   .button.liked {
     color: #0571ed;
   }
@@ -215,3 +227,8 @@ hr {
       -webkit-filter: blur(0.5px);
     }
   }
+.error_like {
+    color: #ff0000;
+    text-decoration: none;
+    margin-left: 10px;
+}

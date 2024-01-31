@@ -14,17 +14,35 @@
             <div class="d-flex justify-content-between">
             <h2>{{$video->title}}</h2> <h2>Канал: {{$video->user->login}}</h2>
         </div>
+        <div class="d-flex "> 
             <p>{{$diff}} </p>
-            
+            @auth
+            <a  href="/{{$video->id}}/like_add" id="like" class="button" onclick="liked()">
+                 <i class="fa fa-thumbs-up"></i>
+                        <span class="icon"></span>
+                        <span>{{$video->likesCount()}}</span>
+            </a>
 
+            <a  href="/{{$video->id}}/dislike_add" >
+             
+                <i onclick="myFunction(this)" class="fa fa-thumbs-up"></i>
+                       <span>{{$video->likesCount()}}</span>
+           </a>
+            @endauth
+        </div>
             
-                <!-- <form> -->
-                <button id="like" class="button" onclick="liked()">
-                     <i class="fa fa-thumbs-up"></i>
-                            <span class="icon"></span>
-                </button>
-        
-                <!-- </form> -->
+       
+                 
+                @guest
+                <div class="d-flex "> 
+                    
+                <i class="fa fa-thumbs-up"></i>
+                <span class="icon"></span>
+                <span>{{$video->likesCount()}}</span>
+                <a href="/auth" class="error_like">Авторизируйтесь чтобы проставить лайк </a>
+            </div>
+                @endguest
+               
 
 
 
@@ -86,5 +104,9 @@
     var element = document.getElementById("like");
     element.classList.toggle("liked");
   }
+
+  function myFunction(x) {
+  x.classList.toggle("fa-thumbs-down");
+}
 </script>
 </html>
