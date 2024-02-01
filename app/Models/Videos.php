@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
-use App\Models\Likes;
+use App\Models\Dislikes;
 
 class Videos extends Model
 {
@@ -35,5 +35,19 @@ class Videos extends Model
     {
         return $this->Like->count();
 
+    }
+
+    public function DisLike() {
+        return $this->hasMany(Dislikes::class, 'id_video', 'id');
+    }
+
+    public function DislikesCount()
+    {
+        return $this->DisLike->count();
+
+    }
+
+    public function statuses() {
+        return $this->belongsTo(Status::class, 'status', 'id');
     }
 }

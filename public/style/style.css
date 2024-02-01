@@ -187,8 +187,14 @@ hr {
     border-radius: 10px;
 }
 
+.button{
+    cursor: pointer;
+    outline: 0;
+    color: #AAA;
+  
+  }
 
-.button {
+/* .button {
     background-color: #263248;
     border: unset;
     outline: 0;
@@ -226,7 +232,18 @@ hr {
       filter: blur(0.5px);
       -webkit-filter: blur(0.5px);
     }
+  } */
+
+  .btn:focus {
+    outline: none;
   }
+  .green{
+  color: green;
+}
+.red{
+  color: red;
+}
+
 .error_like {
     color: #ff0000;
     text-decoration: none;

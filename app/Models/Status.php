@@ -13,4 +13,8 @@ class Status extends Model
         'id',
         'title',
     ];
+
+    public function videos() {
+        return $this->hasMany(Videos::class, 'status', 'id');
+    }
 }

@@ -6,6 +6,7 @@ use App\Models\Videos;
 use App\Models\Categories;
 use App\Models\Comments;
 use App\Models\Likes;
+use App\Models\Dislikes;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -95,13 +96,13 @@ class VideoControllers extends Controller
 
 
     if ($existingLike) {
-        return redirect()->back()->with('error', 'Вы не можете поставить лайк!');
+        return redirect()->back()->with('error', 'Вы не можете поставить диз!');
     } else { 
         Dislikes::create([
         'id_user' => $author,
         'id_video' => $id,
     ]);
-    return redirect()->back()->with('likes', 'Вы проставили лайк!');
+    return redirect()->back()->with('likes', 'Вы проставили Диз!');
     }
     
 }

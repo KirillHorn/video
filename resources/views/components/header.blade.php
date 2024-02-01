@@ -14,6 +14,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+         <script src="https://use.fontawesome.com/fe459689b4.js"></script>
     <title>VideoFriren</title>
 
 
@@ -30,7 +32,7 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Видео</a></li>
-        <li><a href="/addVideo" class="nav-link px-2 link-dark">Добавить видео +</a></li>
+        <li><a href="/addVideo" class="nav-link px-2 link-dark btn btn-primary">Добавить видео +</a></li>
       </ul>
 
   <div class="col-md-3 text-end">
