@@ -83,21 +83,27 @@ class VideoControllers extends Controller
     {
 
         $author = Auth::user()->id;
-
-        $existingLike = Likes::where('id_user', $author)
-            ->where('id_video', $id)
-            ->first();
-
-
-        if ($existingLike) {
+        $existingDislike = Dislikes::where('id_user', $author)
+        ->where('id_video', $id)
+        ->first();
+        if ($existingDislike) {
             return redirect()->back()->with('error', 'Вы не можете поставить лайк!');
-        } else {
-            Likes::create([
-                'id_user' => $author,
-                'id_video' => $id,
-            ]);
-            return redirect()->back()->with('likes', 'Вы проставили лайк!');
-        }
+      } else {
+        $existingLike = Likes::where('id_user', $author)
+        ->where('id_video', $id)
+        ->first();
+
+
+    if ($existingLike) {
+        return redirect()->back()->with('error', 'Вы не можете поставить лайк!');
+    } else {
+        Likes::create([
+            'id_user' => $author,
+            'id_video' => $id,
+        ]);
+        return redirect()->back()->with('likes', 'Вы проставили лайк!');
+    }
+      }
     }
 
     public function Dislike_add($id)
@@ -105,12 +111,20 @@ class VideoControllers extends Controller
 
         $author = Auth::user()->id;
 
-        $existingLike = Dislikes::where('id_user', $author)
+        $existingLike = Likes::where('id_user', $author)
+        ->where('id_video', $id)
+        ->first();
+        if ($existingLike) {
+            
+            return redirect()->back()->with('error', 'Вы не можете поставить дизлайк!');
+       
+        } else {
+            $existingDislike = Dislikes::where('id_user', $author)
             ->where('id_video', $id)
             ->first();
 
 
-        if ($existingLike) {
+        if ($existingDislike) {
             return redirect()->back()->with('error', 'Вы не можете поставить диз!');
         } else {
             Dislikes::create([
@@ -119,5 +133,7 @@ class VideoControllers extends Controller
             ]);
             return redirect()->back()->with('likes', 'Вы проставили Диз!');
         }
+
+     }
     }
 }
