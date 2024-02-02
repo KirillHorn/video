@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\Videos;
 
 class Categories extends Model
 {
@@ -13,4 +14,8 @@ class Categories extends Model
         'id',
         'title'
     ];
+
+    public function categories() {
+        return $this->hasMany(Videos::class,'categories','id');
+    }
 }

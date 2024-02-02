@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\User;
 use App\Models\Dislikes;
+use App\Models\Categories;
 
 class Videos extends Model
 {
@@ -49,5 +50,9 @@ class Videos extends Model
 
     public function statuses() {
         return $this->belongsTo(Status::class, 'status', 'id');
+    }
+
+    public function categorie() {
+        return $this->belongsTo(Categories::class,'categories','id');
     }
 }

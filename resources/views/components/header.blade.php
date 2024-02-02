@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-
+         <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
          <script src="https://use.fontawesome.com/fe459689b4.js"></script>
     <title>VideoFriren</title>
 
@@ -32,11 +32,17 @@
       <ul class="nav col-12 col-md-auto mb-2 justify-content-center mb-md-0">
         <li><a href="/" class="nav-link px-2 link-secondary">Главная</a></li>
         <li><a href="#" class="nav-link px-2 link-dark">Видео</a></li>
+        @if (Auth::user()->role == 1)
         <li><a href="/addVideo" class="nav-link px-2 link-dark btn btn-primary">Добавить видео +</a></li>
+        @endauth
       </ul>
 
   <div class="col-md-3 text-end">
+    @if (Auth::user()->role == 1)
         <a href="/personalVideo" class="btn btn-outline-primary me-2 button_reg">Мои видео</a>
+        @else
+        <a href="/admin/index" class="btn btn-outline-primary me-2 button_reg">Админ панель</a>
+@endif
         <a href="/signout" class="btn btn-primary button_auth"  style="margin-right: 40px;">Выйти</a>
       </div>
       @endauth
