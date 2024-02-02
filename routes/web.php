@@ -34,3 +34,4 @@ Route::get('/{id}/Dislike_add', [VideoControllers::class, 'Dislike_add']);
 
 Route::get('/personalVideo', [Registercontroller::class, 'personalVideo_view']);
 Route::get('/admin/index', [AdminController::class, 'index_admin']);
+Route::post('/{id}/Reduct_status', [AdminController::class, 'Reduct_status']);

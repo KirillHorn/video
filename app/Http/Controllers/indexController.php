@@ -7,8 +7,9 @@ use App\Models\Videos;
 
 class indexController extends Controller
 {
-    public function index() {
-        $videos=Videos::where("status",'1')->get();
+    public function index()
+    {
+        $videos = Videos::where("status", '1')->get();
         return view('index', ['videos' => $videos]);
     }
 }

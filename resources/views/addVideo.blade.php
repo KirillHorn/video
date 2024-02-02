@@ -7,19 +7,18 @@
       <div class="mb-3">
         <label for="exampleInputPassword1" class="form-label">Название</label>
         <input type="text" name="title" value="{{old('title')}}" class="form-control" id="exampleInputPassword1">
-        <p>@error('login') {{$message}}  @enderror</p>
+        <p>@error('title') {{$message}}  @enderror</p>
       </div>
         <div class="mb-3">
           <label for="exampleInputEmail1" class="form-label">Описание</label>
           <textarea class="form-control" name="description"> </textarea>
-          <p>@error('email') {{$message}}  @enderror</p>
+          <p>@error('description') {{$message}}  @enderror</p>
         </div>
 
         <div class="mb-3">
           <label for="exampleInputPassword1" class="form-label">Превью</label>
           <input type="file" name="img" class="form-control" id="imageFile">
           <img class="img_view" id="prevImage" src="#" alt=""/>
-          <p>@error('password') {{$message}}  @enderror</p>
         </div>
 
         <div class="mb-3">
@@ -29,7 +28,6 @@
         <option value="{{$category->id}}">{{$category->title}}</option>
         @endforeach
       </select>
-      <p>@error('password') {{$message}}  @enderror</p>
     </div>
 
 
@@ -37,7 +35,7 @@
         <div class="mb-3">
             <label for="exampleInputPassword1" class="form-label">Загрузить видео</label>
             <input type="file" name="video" class="form-control" id="imageFile">
-            <p>@error('password') {{$message}}  @enderror</p>
+            <p>@error('video') {{$message}}  @enderror</p>
           </div>
 
 

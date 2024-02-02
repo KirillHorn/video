@@ -11,7 +11,8 @@ use Illuminate\Support\Facades\Session;
 
 class Registercontroller extends Controller
 {
-    public function  registration_view() {
+    public function  registration_view()
+    {
         return view('register');
     }
 
@@ -19,13 +20,14 @@ class Registercontroller extends Controller
     {
         return view('auth');
     }
-    public function registration_valid(Request $request) {
+    public function registration_valid(Request $request)
+    {
         $request->validate([
             "login" => "required|unique:users",
             "email" => "required|unique:users|email",
             "password" => "required",
             "password_reset" => "required|same:password",
-        ],[
+        ], [
             "login.required" => "Поле обязательно для заполнения",
             "email.required" => "Поле обязательно для заполнения",
             "password.required" => "Поле обязательно для заполнения",
@@ -37,20 +39,21 @@ class Registercontroller extends Controller
             "password_reset.same" => "Пароли не совпадают",
 
         ]);
-        $userInfo=$request->all();
-        $userAdd=User::create([
+        $userInfo = $request->all();
+        $userAdd = User::create([
             'login' => $userInfo['login'],
             'email' => $userInfo['email'],
             'password' => Hash::make($userInfo['password']),
             'role' => 1,
         ]);
         if ($userAdd) {
-            return redirect("/auth")->with('reg','Регистрация прошла удачно, авторизируйтесь!');
+            return redirect("/auth")->with('reg', 'Регистрация прошла удачно, авторизируйтесь!');
         } else {
             return redirect()->back()->with('error', 'Произошла ошибка! Проверьте логин или пароль!');
         }
     }
-    public function auth_valid(Request $request) {
+    public function auth_valid(Request $request)
+    {
         $request->validate([
             "email" => "required",
             "password" => "required",
@@ -58,14 +61,13 @@ class Registercontroller extends Controller
             "email.required" => "Поле обязательно для заполнения",
             "password.required" => "Поле обязательно для заполнения",
         ]);
-        $authInfo=$request->all();
+        $authInfo = $request->all();
         if (Auth::attempt([
             "email" => $authInfo['email'],
             "password" => $authInfo['password'],
-        ])
-        ) {
+        ])) {
             if (Auth::user()->role == 2) {
-                return redirect('/admin/index')->with('admin','вы зашли в админ панель!');
+                return redirect('/admin/index')->with('admin', 'вы зашли в админ панель!');
             } else {
                 return redirect('/')->with('user', 'вы зашли в админ панель!');
             }
@@ -74,15 +76,21 @@ class Registercontroller extends Controller
         }
     }
 
-    public function signout() {
+    public function signout()
+    {
         Session::flush();
         Auth::logout();
         return redirect('/')->with('signout', 'Вы вышли из аккаунта!');
     }
 
-    public function personalVideo_view() {
-        $idUser=Auth::user()->id;
-        $videoUser=Videos::where('users', $idUser)->get();
+    public function personalVideo_view()
+    {
+        $idUser = Auth::user()->id;
+        $videoUser = Videos::where('users', $idUser)
+            ->where('status', '!=', '4')
+            ->withCount('Like')
+            ->orderByDesc('Like_count')
+            ->get();
         return view('personalVideo', ['videos' => $videoUser]);
     }
 }

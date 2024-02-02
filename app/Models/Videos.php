@@ -31,16 +31,25 @@ class Videos extends Model
     public function Like() {
         return $this->hasMany(Likes::class, 'id_video', 'id');
     }
-
     public function likesCount()
     {
         return $this->Like->count();
 
     }
 
+    
+    public static function getVideosOrderByLikes()
+    {
+        return self::withCount('Like')
+            ->orderByDesc('likesCount')
+            ->get();
+    }
+
     public function DisLike() {
         return $this->hasMany(Dislikes::class, 'id_video', 'id');
     }
+
+
 
     public function DislikesCount()
     {

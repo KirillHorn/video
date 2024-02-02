@@ -1,7 +1,7 @@
 <x-header/>
 
             <section>
-                <h1>Добро пожаловать в админ панель - {{Auth::user()->login}}</h1>
+                <h1 class="">Добро пожаловать в админ панель - {{Auth::user()->login}}</h1>
 
                 <div> 
                 <table class="table table-striped">
@@ -31,8 +31,9 @@
       <td class="align-middle">{{$video->categorie->title}}</td>
       <td class="align-middle">{{$video->statuses->title}}</td>
       <td class="align-middle">
-        <form method="POST" action="" class="d-flex flex-column gap-1"> 
-        <select name="id_categoriesCafe" class="option_status"> 
+        <form method="POST" action="/{{$video->id}}/Reduct_status" class="d-flex flex-column gap-1"> 
+        @csrf
+        <select name="status" class="option_status"> 
             @foreach ($status as $statuses)
                 <option value="{{$statuses ->id }}"> {{$statuses->title}} </option>
             @endforeach
