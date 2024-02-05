@@ -224,3 +224,7 @@ hr {
 .option_status {
     border-radius: 20px;
 }
+.p_error {
+    color: #ff0000;
+    font-weight: 500;
+}

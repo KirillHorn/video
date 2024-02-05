@@ -33,24 +33,26 @@
                         </a>
                     </div>
                     @endauth
+                    @guest
+                    <div class="d-flex gap-3">
+                            <div> 
+                        <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
+                        <span class="icon"></span>
+                        <span style=>{{$video->likesCount()}}</span>
+                            </div>
+                            <div>
+                        <i class="fa fa-thumbs-down fa-lg" aria-hidden="true"></i>
+                        <span>{{$video->DislikesCount()}}</span>
+                            </div>
+                        <a href="/auth" class="error_like">Авторизируйтесь чтобы проставить лайк или дизлайк </a>
+                    </div>
+                    @endguest
                 </div>
 
 
 
-                @guest
-                <div class="d-flex ">
-
-                    <i class="fa fa-thumbs-up fa-lg" aria-hidden="true"></i>
-                    <span class="icon"></span>
-                    <span>{{$video->likesCount()}}</span>
-                    <a href="/auth" class="error_like">Авторизируйтесь чтобы проставить лайк </a>
-                </div>
-                @endguest
-
-
-
-
-
+    
+        
             </div>
 
         </div>
@@ -58,10 +60,9 @@
         <div class="comment_main">
             <div class="d-flex flex-column">
                 <p class="comment_logo">Комментарии
-
                     @guest
-                <h2 style="padding-left: 20px;">Чтобы оставлять комментарии - <a href="/auth"> Войдите </a> или <a href="/register"> зарегистрируйтесь </a></h2>
-                @endguest
+                    <h2 style="padding-left: 20px;">Чтобы оставлять комментарии - <a href="/auth"> Войдите </a> или <a href="/register"> зарегистрируйтесь </a></h2>
+                    @endguest
                 </p>
                 <hr style="   border: none; color: #ffffff; background-color: #ffffff; 
     height: 2px; ">
